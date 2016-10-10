@@ -1,5 +1,5 @@
 
-html, body, #table {
+html, body, #tabletop {
   background-image: url("../images/table.jpg");
   background-repeat: repeat;
 /*  width: 100%;
@@ -14,8 +14,13 @@ html, body, #table {
 #welcome {
   font-family: arial, helvetica, sans-serif;
   font-size: 50px;
-  color: ;
-  background-color: ;
+  color: #f4cb42;
+  background-color: #389625;
+  position:absolute;
+  top:0;
+  left:0;
+  bottom:0;
+  width:100%;
 }
 
 .button {

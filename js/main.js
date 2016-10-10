@@ -1,5 +1,10 @@
 console.log("JS Linked!")
 
+$(document).ready(function(){
+  console.log("Ready to do something!")
+
+});
+
 var dealerTotal = 0;
 var playerTotal = 0;
 var gameWon = false;
@@ -38,7 +43,7 @@ var deal = function(){
 
 
 $('#start').on('click', function(){
-  alert('Starting game now!');
+  $(this).parent('#welcome').fadeOut(1000);
 });
 
 // functions:
