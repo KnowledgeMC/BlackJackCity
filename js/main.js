@@ -150,6 +150,18 @@ function cardRenderDealer(){
   }
 };
 
+function cardResetPlayer(){
+  for(var i =0; i<playerCards.length;i++){
+    $(playerArray[i]).removeClass(playerCards[i].cssName);
+    $(playerArray[i]).addClass("back-red");
+  }
+};
+function cardResetDealer(){
+  for(var i =0; i<dealerCards.length;i++){
+    $(dealerArray[i]).removeClass(dealerCards[i].cssName);
+    $(dealerArray[i]).addClass("back-red");
+  }
+};
 // jQuery Hide class--display NONE
 // $('#dealerCard3').css({'display': 'none'});
 
@@ -160,6 +172,8 @@ $('#start').on('click', function(){
 });
 
 $('#deal').on('click', function(){
+  cardResetPlayer();
+  cardResetDealer();
   dealHand(playerCards);
   dealHand(dealerCards);
   // $('#playerScore').text("Player: " + calcScore(playerCards));
