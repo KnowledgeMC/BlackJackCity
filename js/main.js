@@ -137,12 +137,15 @@ var playerArray = ["#playerCard1","#playerCard2","#playerCard3","#playerCard4","
 
 function cardRenderPlayer(){
   for(var i =0; i < playerCards.length; i++){
+    $(playerArray[i]).removeClass("back-red",1000,"easeInBack");
     $(playerArray[i]).addClass(playerCards[i].cssName);
+    // $(playerArray[i]).css({'display': 'none'});
   }
 };
 
 function cardRenderDealer(){
   for(var i =0; i < dealerCards.length; i++){
+    $(dealerArray[i]).removeClass("back-red");
     $(dealerArray[i]).addClass(dealerCards[i].cssName);
   }
 };
