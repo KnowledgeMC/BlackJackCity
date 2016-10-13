@@ -137,14 +137,16 @@ var playerArray = ["#playerCard1","#playerCard2","#playerCard3","#playerCard4","
 
 function cardRenderPlayer(){
   for(var i =0; i < playerCards.length; i++){
-    $(playerArray[i]).removeClass("back-red",1000,"easeInBack");
+    $(playerArray[i]).css({'display': 'inline-block'});
+    $(playerArray[i]).removeClass("back-red");
     $(playerArray[i]).addClass(playerCards[i].cssName);
-    // $(playerArray[i]).css({'display': 'none'});
+
   }
 };
 
 function cardRenderDealer(){
   for(var i =0; i < dealerCards.length; i++){
+    $(dealerArray[i]).css({'display': 'inline-block'});
     $(dealerArray[i]).removeClass("back-red");
     $(dealerArray[i]).addClass(dealerCards[i].cssName);
   }
@@ -153,13 +155,13 @@ function cardRenderDealer(){
 function cardResetPlayer(){
   for(var i =0; i<playerCards.length;i++){
     $(playerArray[i]).removeClass(playerCards[i].cssName);
-    $(playerArray[i]).addClass("back-red");
+    $(playerArray[i]).css({'display': 'none'});
   }
 };
 function cardResetDealer(){
   for(var i =0; i<dealerCards.length;i++){
     $(dealerArray[i]).removeClass(dealerCards[i].cssName);
-    $(dealerArray[i]).addClass("back-red");
+    $(dealerArray[i]).css({'display': 'none'});
   }
 };
 // jQuery Hide class--display NONE

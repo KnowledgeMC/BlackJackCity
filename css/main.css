@@ -73,6 +73,7 @@ html, body, #tabletop {
 {
   height: 100px;
   width: 71px;
+  display: none;
 }
 
 .button {
