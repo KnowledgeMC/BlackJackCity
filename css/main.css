@@ -16,13 +16,18 @@ html, body, #tabletop {
 }
 
 #dealer, #player{
-  color: white;
-  border: 2px solid white;
+  color: ##ffe6bc;
+  border: 2px dotted white;
   height: 175px;
   width: 500px;
   text-align: center;
   font-family: helvetica, sans-serif;
   font-size: 25px;
+  text-shadow: 5px 5px 5px #000000;
+  box-shadow: 10px 10px 10px #000000;
+   -webkit-text-fill-color: ##ffe6bc; /* Will override color (regardless of order) */
+   -webkit-text-stroke-width: 1px;
+   -webkit-text-stroke-color: white;
 
 }
 
