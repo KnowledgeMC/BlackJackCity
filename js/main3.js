@@ -1,5 +1,9 @@
 console.log("JS Linked!");
 
+// $(document).ready(function(){
+//   console.log("Ready to do something!")
+// });
+var gameWon = false;
 var deck;
 var dealerCards = [];
 var playerCards = [];
@@ -11,7 +15,6 @@ var deckNames = [
   "cA", "c02", "c03", "c04", "c05", "c06", "c07", "c08", "c09", "c10", "cJ", "cQ", "cK",
   "dA", "d02" , "d03", "d04", "d05", "d06", "d07", "d08", "d09", "d10", "dJ", "dQ", "dK",
   ];
-
 
 function Card(cssName) {
   this.cssName = cssName;
@@ -51,12 +54,11 @@ var deal = function(){
 var dealPlayer = function(){
   var playerCard = deal();
   playerCards.push(playerCard);
-  var score = calcScore(playerCards);
+  var score = calcPlayerScore();
   if(score >= 21){
     whoWon();
   }
 };
-
 
 function dealHand(hand) {
   hand.splice(0, hand.length);
@@ -67,39 +69,38 @@ function dealHand(hand) {
 };
 
 function dealHouse() {
-  while (calcScore(dealerCards) < 17) {
+  while (calcDealerScore() < 17) {
     dealerCards.push(deal());
   }
   whoWon();
 };
 
-////////Previous score calculation without Ace Logic!
-// function calcScore(hand) {
-//   var score = 0;
-//     for(var i = 0; i < hand.length; i++){
-//     score += hand[i].value;
-//   };
-//   return score;
-// };
-function calcScore(hand) {
-var score=0;
-var sortedCopy = hand.slice(0).sort(function(a,b){
-    return a.value - b.value;
-});
-for(var i = 0; i < sortedCopy.length; i++){
-    if(score + sortedCopy[i].value > 21 && sortedCopy[i].value === 11){
-     score+=1;
-    } else{
-      score+= sortedCopy[i].value;
-    }
+var calcPlayerScore = function(){
+  var playerScore = 0;
+  for(var i = 0; i < playerCards.length; i++){
+    playerScore += playerCards[i].value;
   }
+  return playerScore;
+};
+
+function calcScore(hand) {
+  var score = 0;
+    for(var i = 0; i < hand.length; i++){
+    score += hand[i].value;
+  };
   return score;
 };
 
-
+var calcDealerScore = function(){
+  var dealerScore = 0;
+  for(var i = 0; i < dealerCards.length; i++){
+    dealerScore += dealerCards[i].value;
+  };
+  return dealerScore;
+};
 
 var whoWon = function(){
-  var dealerScore = calcScore(dealerCards);
+  var dealerScore = calcDealerScore();
   var playerScore = calcScore(playerCards);
   if (playerScore === 21 && dealerScore != 21){
     console.log("21! Player Wins!");
@@ -127,28 +128,11 @@ var whoWon = function(){
 };
 
 function render() {
-  $('#playerScore').text("Player: " + calcScore(playerCards));
-  $('#dealerScore').text("Dealer: " + calcScore(dealerCards));
-
-  // $('#player').
-};
-var dealerArray = ["#dealerCard1","#dealerCard2","#dealerCard3","#dealerCard4","#dealerCard5"];
-var playerArray = ["#playerCard1","#playerCard2","#playerCard3","#playerCard4","#playerCard5"];
-
-function cardRenderPlayer(){
-  for(var i =0; i < playerCards.length; i++){
-    $(playerArray[i]).addClass(playerCards[i].cssName);
-  }
+  $('#playerScore').text("Player: " + calcPlayerScore());
+  $('#dealerScore').text("Dealer: " + calcDealerScore());
 };
 
-function cardRenderDealer(){
-  for(var i =0; i < dealerCards.length; i++){
-    $(dealerArray[i]).addClass(dealerCards[i].cssName);
-  }
-};
 
-// jQuery Hide class--display NONE
-// $('#dealerCard3').css({'display': 'none'});
 
 // Welcome screen and FadeOut
 $('#start').on('click', function(){
@@ -159,23 +143,18 @@ $('#start').on('click', function(){
 $('#deal').on('click', function(){
   dealHand(playerCards);
   dealHand(dealerCards);
-  // $('#playerScore').text("Player: " + calcScore(playerCards));
-  cardRenderPlayer();
-  cardRenderDealer();
-  render();
+  $('#playerScore').text("Player: " + calcPlayerScore());
 });
 
 $('#hit').on('click', function(){
     dealPlayer();
     calcScore(playerCards);
-    cardRenderPlayer();
     render();
 });
 
 $('#stay').on('click', function(){
     dealHouse();
     calcScore(dealerCards);
-    cardRenderDealer();
     render();
 });
 

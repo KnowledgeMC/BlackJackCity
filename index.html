@@ -10,29 +10,51 @@
   <link rel="stylesheet" href="cardLibrary/css/cardStarter.min.css">
 </head>
 <body>
+
   <div id="tabletop">
-    <div id="welcome"><h2><span id="welcome_text">Welcome to BlackJack City!</span></h2>
-      <button class="button" id="start">Click to Shuffle and Start the Game</button>
+
+    <div id="welcome">
+      <h2><span id="welcome_text">Welcome to <br> BlackJack City!</span></h2>
+      <br>
+      <button class="button" id="start">Click to Start</button>
     </div>
 
-    <div id="replay">
-      <button class="button" id="replay">Play Again</button>
-    </div>
 
-    <div id="pile" class="card outline">Pile</div>
-    <div id="deck">Deck</div>
-    <div id="dealer">Dealer's Cards</div>
-    <div id="dealerTotal">Dealer: </div>
-    <div id="player">Player's Cards</div>
-    <div id="playerTotal">Player: </div>
+    <!-- <div id="pile" class="card outline">Pile</div> -->
+    <!-- <div id="deck">Deck</div> -->
+    <div class = "card back-red" id="deck"></div>
+    <div id="dealer">Dealer's Cards
+    <br>
+      <div id="dealerCard1" class="card shadow small"></div>
+      <div id="dealerCard2" class="card shadow small"></div>
+      <div id="dealerCard3" class="card shadow small"></div>
+      <div id="dealerCard4" class="card shadow small"></div>
+      <div id="dealerCard5" class="card shadow small"></div>
+    </div>
+    <div id="dealerScore">Dealer: 0</div>
+    <br>
+    <div id="player">Player's Cards
+    <br>
+      <div id="playerCard1" class="card shadow small"></div>
+      <div id="playerCard2" class="card shadow small"></div>
+      <div id="playerCard3" class="card shadow small"></div>
+      <div id="playerCard4" class="card shadow small"></div>
+      <div id="playerCard5" class="card shadow small"></div>
+    </div>
+    <div id="playerScore">Player: 0</div>
+
 
     <button class="button" id="deal">Deal</button>
-    <button class="button" id="Hit">Hit</button>
-    <button class="button" id="Stay">Stay</button>
+    <button class="button" id="hit">Hit</button>
+    <button class="button" id="stay">Stay</button>
+
+<!--     <div id="replay">
+      <button class="button" id="replay">Play Again</button>
+    </div>
   </div>
+ -->
 
-
-  <div class="card hA shadow xlarge"></div>
+  <!-- <div class="card hA shadow large"></div> -->
 <script src="js/main.js"></script>
 </body>
 </html>

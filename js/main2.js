@@ -1,5 +1,9 @@
 console.log("JS Linked!");
 
+// $(document).ready(function(){
+//   console.log("Ready to do something!")
+// });
+var gameWon = false;
 var deck;
 var dealerCards = [];
 var playerCards = [];
@@ -51,104 +55,94 @@ var deal = function(){
 var dealPlayer = function(){
   var playerCard = deal();
   playerCards.push(playerCard);
-  var score = calcScore(playerCards);
+  var score = calcPlayerScore();
   if(score >= 21){
     whoWon();
   }
 };
 
-
 function dealHand(hand) {
   hand.splice(0, hand.length);
   hand.push(deal(), deal());
-  if(calcScore === 21){
-    whoWon();
-  }
 };
 
 function dealHouse() {
-  while (calcScore(dealerCards) < 17) {
+  while (calcDealerScore() < 17) {
     dealerCards.push(deal());
   }
   whoWon();
 };
 
-////////Previous score calculation without Ace Logic!
-// function calcScore(hand) {
-//   var score = 0;
-//     for(var i = 0; i < hand.length; i++){
-//     score += hand[i].value;
-//   };
-//   return score;
-// };
-function calcScore(hand) {
-var score=0;
-var sortedCopy = hand.slice(0).sort(function(a,b){
-    return a.value - b.value;
-});
-for(var i = 0; i < sortedCopy.length; i++){
-    if(score + sortedCopy[i].value > 21 && sortedCopy[i].value === 11){
-     score+=1;
-    } else{
-      score+= sortedCopy[i].value;
-    }
+var dealDealer = function(){
+  var dealerCard = deal();
+  var score = calcDealerScore();
+  if(score < 17){
+    dealerCards.push(dealerCard);
+  } else if (score > 17 && score <=21){
+    whoWon();
+  } else if (score > 21){
+    whoWon();
+  };
+};
+
+var calcPlayerScore = function(){
+  var playerScore = 0;
+  for(var i = 0; i < playerCards.length; i++){
+    playerScore += playerCards[i].value;
   }
+  return playerScore;
+};
+
+function calcScore(hand) {
+  var score = 0;
+    for(var i = 0; i < hand.length; i++){
+    score += hand[i].value;
+  };
   return score;
 };
 
-
+var calcDealerScore = function(){
+  var dealerScore = 0;
+  for(var i = 0; i < dealerCards.length; i++){
+    dealerScore += dealerCards[i].value;
+  };
+  return dealerScore;
+};
 
 var whoWon = function(){
-  var dealerScore = calcScore(dealerCards);
+  var dealerScore = calcDealerScore();
   var playerScore = calcScore(playerCards);
   if (playerScore === 21 && dealerScore != 21){
-    console.log("21! Player Wins!");
-    window.alert("21! Player Wins!");
+    console.log("BlackJack! Player Wins!");
   } else if (playerScore > 21){
     console.log("Player Busts! Dealer Wins!");
-    window.alert("Player Busts! Dealer Wins!");
   } else if (dealerScore === 21 && playerScore != 21){
-    console.log("21! Dealer Wins!");
-    window.alert("21! Dealer Wins!");
+    console.log("BlackJack! Dealer Wins!");
   } else if (playerScore > dealerScore && playerScore <= 21){
     console.log("Player Wins!");
-    window.alert("Player Wins!");
   } else if (dealerScore > playerScore && dealerScore <= 21){
     console.log("Dealer Wins!");
-    window.alert("Dealer Wins!");
   } else if (dealerScore > 21 && playerScore <=21){
     console.log("Dealer Busts! Player Wins!");
-    window.alert("Dealer Busts! Player Wins!");
   } else if(dealerScore === playerScore){
     console.log("It's a Push!");
-    window.alert("It's a Push!");
   }
   render();
 };
 
 function render() {
-  $('#playerScore').text("Player: " + calcScore(playerCards));
-  $('#dealerScore').text("Dealer: " + calcScore(dealerCards));
-
-  // $('#player').
-};
-var dealerArray = ["#dealerCard1","#dealerCard2","#dealerCard3","#dealerCard4","#dealerCard5"];
-var playerArray = ["#playerCard1","#playerCard2","#playerCard3","#playerCard4","#playerCard5"];
-
-function cardRenderPlayer(){
-  for(var i =0; i < playerCards.length; i++){
-    $(playerArray[i]).addClass(playerCards[i].cssName);
-  }
+  $('#playerScore').text("Player: " + calcPlayerScore());
+  $('#dealerScore').text("Dealer: " + calcDealerScore());
 };
 
-function cardRenderDealer(){
-  for(var i =0; i < dealerCards.length; i++){
-    $(dealerArray[i]).addClass(dealerCards[i].cssName);
-  }
-};
 
-// jQuery Hide class--display NONE
-// $('#dealerCard3').css({'display': 'none'});
+
+
+// var test = function(){
+//   console.log("This worked!");
+// };
+// $('#start').on('click', test);
+
 
 // Welcome screen and FadeOut
 $('#start').on('click', function(){
@@ -159,25 +153,17 @@ $('#start').on('click', function(){
 $('#deal').on('click', function(){
   dealHand(playerCards);
   dealHand(dealerCards);
-  // $('#playerScore').text("Player: " + calcScore(playerCards));
-  cardRenderPlayer();
-  cardRenderDealer();
   render();
 });
 
 $('#hit').on('click', function(){
     dealPlayer();
-    calcScore(playerCards);
-    cardRenderPlayer();
+    calcPlayerScore();
     render();
 });
 
 $('#stay').on('click', function(){
+
     dealHouse();
-    calcScore(dealerCards);
-    cardRenderDealer();
-    render();
+    calcDealerScore();
 });
-
-
-
