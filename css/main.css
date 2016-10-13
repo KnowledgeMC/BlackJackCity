@@ -15,7 +15,7 @@ html, body, #tabletop {
 #dealer, #player{
   color: white;
   border: 2px solid white;
-  height: 200px;
+  height: 175px;
   width: 500px;
   text-align: center;
   font-family: helvetica, sans-serif;
@@ -59,6 +59,22 @@ html, body, #tabletop {
   /*box-shadow: 10px 10px 10px #FFFFFF;*/
   border: 5px solid #FFFFFF;;
 }
+
+#dealerCard1,
+#dealerCard2,
+#dealerCard3,
+#dealerCard4,
+#dealerCard5,
+#playerCard1,
+#playerCard2,
+#playerCard3,
+#playerCard4,
+#playerCard5
+{
+  height: 100px;
+  width: 71px;
+}
+
 .button {
   width: 100px;
   height: 50;
