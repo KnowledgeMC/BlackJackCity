@@ -167,6 +167,8 @@ function cardResetDealer(){
 // jQuery Hide class--display NONE
 // $('#dealerCard3').css({'display': 'none'});
 
+// $(document).ready()
+
 // Welcome screen and FadeOut
 $('#start').on('click', function(){
   $(this).parent('#welcome').fadeOut(1000);
