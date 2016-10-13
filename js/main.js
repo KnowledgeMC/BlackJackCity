@@ -12,7 +12,6 @@ var deckNames = [
   "dA", "d02" , "d03", "d04", "d05", "d06", "d07", "d08", "d09", "d10", "dJ", "dQ", "dK",
   ];
 
-
 function Card(cssName) {
   this.cssName = cssName;
   if (cssName.length === 3) {
@@ -73,14 +72,6 @@ function dealHouse() {
   whoWon();
 };
 
-////////Previous score calculation without Ace Logic!
-// function calcScore(hand) {
-//   var score = 0;
-//     for(var i = 0; i < hand.length; i++){
-//     score += hand[i].value;
-//   };
-//   return score;
-// };
 function calcScore(hand) {
 var score=0;
 var sortedCopy = hand.slice(0).sort(function(a,b){
@@ -95,8 +86,6 @@ for(var i = 0; i < sortedCopy.length; i++){
   }
   return score;
 };
-
-
 
 var whoWon = function(){
   var dealerScore = calcScore(dealerCards);
@@ -129,9 +118,8 @@ var whoWon = function(){
 function render() {
   $('#playerScore').text("Player: " + calcScore(playerCards));
   $('#dealerScore').text("Dealer: " + calcScore(dealerCards));
-
-  // $('#player').
 };
+
 var dealerArray = ["#dealerCard1","#dealerCard2","#dealerCard3","#dealerCard4","#dealerCard5","#dealerCard6","#dealerCard7","#dealerCard8"];
 var playerArray = ["#playerCard1","#playerCard2","#playerCard3","#playerCard4","#playerCard5","#playerCard6","#playerCard7","#playerCard8"];
 
@@ -140,7 +128,6 @@ function cardRenderPlayer(){
     $(playerArray[i]).css({'display': 'inline-block'});
     $(playerArray[i]).removeClass("back-red");
     $(playerArray[i]).addClass(playerCards[i].cssName);
-
   }
 };
 
@@ -158,16 +145,13 @@ function cardResetPlayer(){
     $(playerArray[i]).css({'display': 'none'});
   }
 };
+
 function cardResetDealer(){
   for(var i =0; i<dealerCards.length;i++){
     $(dealerArray[i]).removeClass(dealerCards[i].cssName);
     $(dealerArray[i]).css({'display': 'none'});
   }
 };
-// jQuery Hide class--display NONE
-// $('#dealerCard3').css({'display': 'none'});
-
-// $(document).ready()
 
 // Welcome screen and FadeOut
 $('#start').on('click', function(){
@@ -180,7 +164,6 @@ $('#deal').on('click', function(){
   cardResetDealer();
   dealHand(playerCards);
   dealHand(dealerCards);
-  // $('#playerScore').text("Player: " + calcScore(playerCards));
   cardRenderPlayer();
   cardRenderDealer();
   render();

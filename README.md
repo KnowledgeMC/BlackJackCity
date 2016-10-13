@@ -28,6 +28,7 @@ Clicking the "Deal" button starts the game and two cards are dealt out to the Pl
 
 ###Unsolved Problems:
 * The pop up alert box notifies the player of the result of the game before the cards are rendered to the screen. 
+* The player can keep Hitting even though the game is over.
 
 ###Next Steps/Planned Features:
 * Chips and a Betting system
@@ -36,5 +37,7 @@ Clicking the "Deal" button starts the game and two cards are dealt out to the Pl
 * Option to Double Down
 * Option to Split cards 
 * Additional styling
+* Responsive design 
+* Replace Alert Box with custom designed one
 
 
