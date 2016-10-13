@@ -7,7 +7,7 @@ html, body, #tabletop {
 /*  display: flex;
   justify-content: center;
   flex-wrap: wrap;*/
-  border: 5px black solid;
+  /*border: 5px black solid;*/
   box-sizing: border-box;
 }
 
