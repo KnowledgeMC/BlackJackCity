@@ -65,11 +65,17 @@ html, body, #tabletop {
 #dealerCard3,
 #dealerCard4,
 #dealerCard5,
+#dealerCard6,
+#dealerCard7,
+#dealerCard8,
 #playerCard1,
 #playerCard2,
 #playerCard3,
 #playerCard4,
-#playerCard5
+#playerCard5,
+#playerCard6,
+#playerCard7,
+#playerCard8
 {
   height: 100px;
   width: 71px;
@@ -126,17 +132,15 @@ html, body, #tabletop {
 }
 */
 #deck {
-  display: inline-block
-  position: absolute;
+  display: block;
+  /*position: absolute;*/
   /*border: orange 3px dashed;*/
-  float: right;
-  top: 100px;
-  margin-right: 400px;
+  left: 540px;
   box-sizing: border-box;
   margin: 2px 2px 2px 2px;
-  /*width: 220px;
-  height: 310px;
-  font-family: arial, helvetica, sans-serif;
+  height: 100px;
+  width: 71px;
+  /*font-family: arial, helvetica, sans-serif;
   font-size: 12px;
   color: #FFFFFF;
   font-weight: bold;

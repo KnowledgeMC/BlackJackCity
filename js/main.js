@@ -132,8 +132,8 @@ function render() {
 
   // $('#player').
 };
-var dealerArray = ["#dealerCard1","#dealerCard2","#dealerCard3","#dealerCard4","#dealerCard5"];
-var playerArray = ["#playerCard1","#playerCard2","#playerCard3","#playerCard4","#playerCard5"];
+var dealerArray = ["#dealerCard1","#dealerCard2","#dealerCard3","#dealerCard4","#dealerCard5","#dealerCard6","#dealerCard7","#dealerCard8"];
+var playerArray = ["#playerCard1","#playerCard2","#playerCard3","#playerCard4","#playerCard5","#playerCard6","#playerCard7","#playerCard8"];
 
 function cardRenderPlayer(){
   for(var i =0; i < playerCards.length; i++){
