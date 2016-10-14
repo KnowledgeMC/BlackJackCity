@@ -19,6 +19,7 @@ At this point, the "whoWon" function is called to check the scores and notify th
 * jQuery for DOM manipulation and event handlers
 * Lodash for _.shuffle method
 
+[Gist](https://gist.github.com/KnowledgeMC/dcd818a61a8ecbb72cd2e3c0cef6a074)
 
 ###Getting Started: 
 BlackJack City follows the standard rules of Blackjack, leaving out some more complex actions for the sake of simplicity (such as doubling down or splitting a hand). The object of the game is to play against the dealer and get a score as close to 21 without going over. All number cards have their respective values, all face cards have a value of 10, and the Ace can be either 11 or 1. The dealer will stand at 17.  
