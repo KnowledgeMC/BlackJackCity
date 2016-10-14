@@ -46,5 +46,7 @@ Clicking the "Deal" button starts the game and two cards are dealt out to the Pl
 * Replace Alert Box with custom designed notification
 	- Fix notification showing before cards rendered	
 
+#####Special shoutout to Ezra and Vincent for all the help!
+
 
 
