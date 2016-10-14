@@ -37,6 +37,7 @@ Clicking the "Deal" button starts the game and two cards are dealt out to the Pl
 * Edit code to take out repetitive functions
 * Chips and a Betting system
 * Multiple Hands
+* Multiple Decks
 * Animations
 * Option to Double Down
 * Option to Split cards 
