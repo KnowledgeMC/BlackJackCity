@@ -149,6 +149,7 @@ html, body, #tabletop {
   margin: 5px 2px 5px 250px;
   height: 100px;
   width: 71px;
+  margin: auto;
   /*background-color: rgba(255, 255, 255, 0.5);*/
   /*display: flex;
   justify-content: right;*/
