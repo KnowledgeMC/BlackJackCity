@@ -37,7 +37,7 @@ var shuffle = function(){
 };
 
 //deal function that picks random number between 1 and 52,
-//and returns a card and removes it from the deckNames array
+//and returns a card
 var deal = function(){
   // console.log(card);
   if (deck === undefined) {
@@ -140,6 +140,15 @@ function cardRenderDealer(){
   }
 };
 
+//TESTING dealing back of cards
+function cardRenderDealer1(){
+  for(var i =0; i < dealerCards.length; i++){
+    $(dealerArray[i]).css({'display': 'inline-block'});
+    // $(dealerArray[i]).removeClass("back-red");
+    $(dealerArray[i]).addClass(dealerCards[i].cssName);
+  }
+};
+
 function cardResetPlayer(){
   for(var i =0; i<playerCards.length;i++){
     $(playerArray[i]).removeClass(playerCards[i].cssName);
@@ -166,7 +175,7 @@ $('#deal').on('click', function(){
   dealHand(playerCards);
   dealHand(dealerCards);
   cardRenderPlayer();
-  cardRenderDealer();
+  cardRenderDealer1();
   render();
 });
 

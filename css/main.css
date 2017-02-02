@@ -28,6 +28,7 @@ html, body, #tabletop {
    -webkit-text-fill-color: ##ffe6bc; /* Will override color (regardless of order) */
    -webkit-text-stroke-width: 1px;
    -webkit-text-stroke-color: white;
+   margin: auto;
 
 }
 
