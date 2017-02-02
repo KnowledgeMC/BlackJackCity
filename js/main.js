@@ -175,7 +175,7 @@ $('#deal').on('click', function(){
   dealHand(playerCards);
   dealHand(dealerCards);
   cardRenderPlayer();
-  cardRenderDealer1();
+  cardRenderDealer1(); //Changed function from cardRenderDealer() to cardRenderDealer1 so that back of cards show
   render();
 });
 
