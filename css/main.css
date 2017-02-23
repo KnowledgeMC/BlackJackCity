@@ -154,3 +154,8 @@ html, body, #tabletop {
   /*display: flex;
   justify-content: right;*/
 }
+
+#buttons {
+  margin-left: 420px;
+
+}
